@@ -1,20 +1,19 @@
-name: Github CI pipleline testing the html file    #name of the workflow
+name: Github CI pipeline testing the html file # name of the workflow
 on:
   push:
     branches:
       - main
 jobs:
   validate:
-    runs-on: ubuntu-latest   #base os base enviroinment
+    runs-on: ubuntu-latest # base os base environment
     steps:
-      - name: Checkout repository    #the file rcently commited in git will be checked
-        uses: actions/checkout@v4    #Tranfer the recently commited git to the local disk
-      - name: Validate HTML file    #validating the html file
-        run:
-          if[ -f "index.html" ]; then 
-            echo "HTML file exists"; 
-          else 
-            echo "HTML file does not exist"; 
-            exit 1; 
+      - name: Checkout repository # the file recently committed in git will be checked
+        uses: actions/checkout@v4 # Transfer the recently committed git to the local disk
+      - name: Validate HTML file # validating the html file
+        run: |
+          if [ -f "index.html" ]; then
+            echo "HTML file exists"
+          else
+            echo "HTML file does not exist"
+            exit 1
           fi
-          
